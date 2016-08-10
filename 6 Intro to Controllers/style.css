@@ -1,0 +1,35 @@
+#blue {
+  background-color: hsl(206,74%,52%);
+  height: 20rem;
+  width: 20rem;
+  display: inline-block;
+}
+h1 {
+  color: white;
+  font-size: 10vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h2, p {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+button {
+  display: flex;
+  justify-content: center;
+}
+
+.green {
+  background-color: green !important;
+}
+.red {
+  background-color: red !important;
+}
+span {
+  display: flex;
+  justify-content: center;
+}

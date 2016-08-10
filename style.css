@@ -1,0 +1,20 @@
+.highlight {
+  background-color: yellow;
+}
+.highlighted {
+  color: orange;
+}
+.bad {
+  color: red;
+}
+
+.good {
+  color: green;
+}
+li {
+  list-style: none;
+}
+img {
+  height: 8rem;
+  width: 10rem;
+}

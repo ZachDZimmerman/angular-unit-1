@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html ng-app>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>{{ greeting }} World</title>
+</head>
+
+  <body>
+    <div ng-init="symbols=['&spades;', '&clubs;', '&hearts;', '&diams;']">
+      <ul>
+        <li ng-repeat='symbol in symbols'>
+          {{symbol}}
+         </li>
+      </ul>
+
+    </div>
+    <hr>
+    <div ng-init="numbers=['1','1','2','5','6','9','9','9']">
+      <ul>
+        <li ng-repeat='number in numbers track by $index'>
+          {{number}}
+        </li>
+      </ul>
+    </div>
+<hr>
+    <div ng-show='3 + 4 == 5'>
+      3 + 4 isn't 5, don't show
+    </div>
+
+    <div ng-show='3 + 4 == 7'>
+      3 + 4 is 7, do show
+    </div>
+
+        3 + 4 isn't 5, don't hide
+    </div>
+
+      3 + 4 is 7, do hide
+    </div>
+<hr>
+  <h1>Sign Up</h1>
+    <form name="password">
+        <input type="password" ng-model="character"
+        ng-class='{bad: 6 > character.length, good: 6 <= character.length}'>
+
+          <p ng-class='{bad: 6 > character.length, good: 6 <= character.length}'>Your password is {{ character.length }} characters</p>
+          <p ng-hide='5 < character.length'>Password is invalid!</p>
+        <button type="button" ng-show='character.length > 5'>Submit</button>
+    </form>
+
+<hr>
+    <div ng-model="madlib">
+      <p>
+        <label><b>Boy's Name</b></label><br>
+        <input type="text" ng-model="boyName" placeholder="Enter a boy's Name">
+      </p>
+      <p>
+        <label><b>Adjective</b></label><br>
+        <input type="text" ng-model="adjective" placeholder="Enter an adjective">
+      </p>
+      <p>
+        <label><b>Plural Noun</b></label><br>
+        <input type="text" ng-model="pluralNounOne" placeholder="Enter a Plural Noun">
+      </p>
+      <p>
+        <label><b>Plural Noun</b></label><br>
+        <input type="text" ng-model="pluralNounTwo" placeholder="Enter a Plural Noun">
+      </p>
+      <p>
+        <label><b>An Insect, plural</b></label><br>
+        <input type="text" ng-model="insectPlural" placeholder="An Insect, plural">
+      </p>
+      <p>
+        <label><b>Pluarl Noun</b></label><br>
+        <input type="text" ng-model="pluralNounThree" placeholder="Enter a Plural Noun">
+      </p>
+      <p>
+        <label><b>A verb ending in "s"</b></label><br>
+        <input type="text" ng-model="verb" placeholder="Enter a boy's Name">
+      </p>
+
+    <h1>Mad Lib</h1>
+    <hr>
+      <h3>I'm in love with <span>{{boyName}}</span>. He's so <span>{{adjective}}</span>! He has big flat <span>{{pluralNounOne}}</span>, and when our <span>{{pluralNounTwo}}</span> meet, I get <span>{{insectPlural}}</span> in my stomach. I've fallen for him like a ton of <span>{{pluralNounThree}}</span>, and he <span>{{verb}}</span> for me, too. But I think he's got another girlfriend. What should I do?</h3>
+    </div>
+    <hr>
+    <div>
+      <h2>Super Useful Tip Calculator</h2>
+        <h6>How much does your meal cost? <input type="number" ng-model="total"></h6>
+        <h6>How much do you want to tip?</h6>
+          <select ng-model="tipValue">
+              <option value=".10">10%</option>
+              <option value=".15">15%</option>
+              <option value=".20">20%</option>
+          </select>
+          <h2>Subtotal:{{(tipValue * total) + total | currency }}</h2>
+          <h2>Tip: {{total * (tipValue)| currency }}</h2>
+    </div>
+
+
+    <p>How many digits of pi do you want?
+      <select ng-model="pi">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+
+    <p>Here you go! The {{pi}} digits of pi</p>
+
+    <ng-puralize count="pi"
+         when= "{'0': 'Pi here!',
+                     'one': '1 pi',
+                     'other': '{} people are viewing.'}">
+    </ng-puralize>
+
+    <h2>{{ 3.14159265359 | number: (pi) }}</h2>
+
+      <hr>
+
+    <h1>{{3.14159265359 | currency : "€"}}</h1>
+    <br>
+    <span>{{3.14159265359 | number:3}}</span>
+    <br>
+    <span>{{3.14159265359 | number:6}}</span>
+    <br>
+    <span>{{3.14159265359 | number:1}}</span>
+    <br>
+
+      <hr>
+
+    <input type="text" ng-model="test">
+    <br>
+    Loud: {{ test | uppercase }} </input>
+    <br>
+    Soft: {{ test | lowercase }}
+
+    <hr>
+
+    <h3>I LOVE {{love}}</h3>
+    <select ng-model="love">
+      <option>Dogs</option>
+      <option>Cats</option>
+      <option>Dogs and Cats</option>
+      <option>Neither</option>
+    </select>
+
+      <hr>
+    <p>Say something to the world <input type="text" ng-model="greeting" ng-init="greeting= 'Hello, '"></p>
+    <p>{{ greeting }} world!</p>
+
+    <h1>My name is: {{name}}</h1>
+    <input type="text" ng-model="name" placeholder="What is your name?">
+      <hr>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+  </body>
+</html>
